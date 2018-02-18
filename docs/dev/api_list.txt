@@ -1,0 +1,11 @@
+
+  Method          | webdav method | URI                                 | options
+------------------|---------------|-------------------------------------|----------------------------------------------
+Get File list     | PROFIND       | /remote.php/webdav/<directory_name> |
+Get File          | GET           | /remote.php/webdav/<file_path>      |
+Send File         | PUT           | /remote.php/webdav/<file_path>      |
+Rename/move file  | MOVE          | /remote.php/webdav/<file_path>      | Destination:/remote.php/webdav/<file_path>
+Copy the file     | COPY          | /remote.php/webdav/<file_path>      | Destination:/remote.php/webdav/<file_path>
+Change attribute  | PROPPATCH     | /remote.php/webdav/<file_path>      |
+Make directory    | MKCOL         | /remote.php/webdav/<directory_name> |
+Delete directory  | DELETE        | /remote.php/webdav/<directory_name> |

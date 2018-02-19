@@ -18,7 +18,7 @@ source ${OWNCLOUD_PATH}/.sourcefiles
 [ "$attrib" -ne "help" ] && shift # if first arg was option, shift.
 
 case "$attrib" in
-  "get" | "post" | "ls" | "mv" | "cp" | "mkdir" | "rm" | "help" )
+  "share" | "get" | "post" | "ls" | "mv" | "cp" | "mkdir" | "rm" | "help" )
     $attrib $@;;
   * )
     usage;;

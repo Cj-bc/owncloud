@@ -1,0 +1,4 @@
+ERROR_NOATTRIBUTE="this attribute doesn't exist."
+
+
+NumERROR_NOATTRIBUTE=1

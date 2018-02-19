@@ -13,8 +13,18 @@
     |---------|-------------|          |func/basicfunc.sh| |func/basicfunc.sh/usage|
     |"get"    |"info"       |"share"           |
 |shareGet| |shareInfo| |shareShare|            |
-                                               | which attrib?
-                                               |
-      |----------|-----------|--------|--------|---------|----------|-------|
-      |"get"     |"post"     |"ls"    |"mv"    |"cp"     |"mkdir"   |"rm"   |"help"
-   |ownGet|  |ownPost|    |ownLs|  |ownMv|  |ownCp| |ownMkdir|    |ownRm| |ownHelp|
+|---|--------|--------------|                  | which attrib?
+|                                              |
+|     |----------|-----------|--------|--------|---------|----------|-------|
+|     |"get"     |"post"     |"ls"    |"mv"    |"cp"     |"mkdir"   |"rm"   |"help"
+|  |ownGet|  |ownPost|    |ownLs|  |ownMv|  |ownCp| |ownMkdir|    |ownRm| |ownHelp|
+|     |          |           |        |        |         |          |       |     
+|---------------------------------------------------------------------------|
+                                    |
+                                    | error?
+                    |-----------------------------|
+                    |                             |
+         |func/error.sh/error|                  <exit>
+                    |
+                  <exit>
+

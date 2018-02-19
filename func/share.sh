@@ -12,7 +12,7 @@
 # Input: <attribute> <option1> <option2> <option3> ...
 # Aim: execute API
 
-function shareGet {
+function shareget {
 
   if [ $1 != "" ]
   then
@@ -23,13 +23,13 @@ function shareGet {
 
 }
 
-function shareInfo {
+function shareinfo {
 
 
 
 }
 
-function shareShare {
+function shareshare {
 
 
 
@@ -37,12 +37,12 @@ function shareShare {
 
 
 
-function share {
+function ownshare {
 
   case $1 in
-    "get" ) shift;shareGet $@;;
-    "info" ) shift;shareInfo $@;;
-    "share" ) shift;shareShare $@;;
+    "get" ) shift;shareget $@;;
+    "info" ) shift;shareinfo $@;;
+    "share" ) shift;shareshare $@;;
     * ) error error
   esac
 

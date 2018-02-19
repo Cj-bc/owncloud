@@ -12,12 +12,12 @@
               |                                |                |
     |---------|-------------|          |func/basicfunc.sh| |func/basicfunc.sh/usage|
     |"get"    |"info"       |"share"           |
-|shareGet| |shareInfo| |shareShare|            |
+|shareget| |shareinfo| |shareshare|            |
 |---|--------|--------------|                  | which attrib?
 |                                              |
 |     |----------|-----------|--------|--------|---------|----------|-------|
 |     |"get"     |"post"     |"ls"    |"mv"    |"cp"     |"mkdir"   |"rm"   |"help"
-|  |ownGet|  |ownPost|    |ownLs|  |ownMv|  |ownCp| |ownMkdir|    |ownRm| |ownHelp|
+|  |ownget|  |ownpost|    |ownls|  |ownmv|  |owncp| |ownmkdir|    |ownrm| |ownhelp|
 |     |          |           |        |        |         |          |       |     
 |---------------------------------------------------------------------------|
                                     |

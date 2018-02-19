@@ -1,0 +1,20 @@
+
+        
+                        |owncloud.sh|
+                              |
+                              | attrib="share"?
+                yes           |      no
+              |--------------------------------|
+        |func/share.sh|                        |
+              |                                | is it available attrib?
+              |                                |----------------|
+              | whitch attrib?             yes |                | no
+              |                                |                |
+    |---------|-------------|          |func/basicfunc.sh| |func/basicfunc.sh/usage|
+    |"get"    |"info"       |"share"           |
+|shareGet| |shareInfo| |shareShare|            |
+                                               | which attrib?
+                                               |
+      |----------|-----------|--------|--------|---------|----------|-------|
+      |"get"     |"post"     |"ls"    |"mv"    |"cp"     |"mkdir"   |"rm"   |"help"
+   |ownGet|  |ownPost|    |ownLs|  |ownMv|  |ownCp| |ownMkdir|    |ownRm| |ownHelp|

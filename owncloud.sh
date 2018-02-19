@@ -21,5 +21,5 @@ case "$attrib" in
   "get" | "post" | "ls" | "mv" | "cp" | "mkdir" | "rm" | "help" )
     $attrib $@;;
   * )
-    usage
+    usage;;
 esac

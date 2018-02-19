@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source ${OWNCLOUD_PATH}/config
+source ${OWNCLOUD_PATH}/docs/
+source ${OWNCLOUD_PATH}/func/

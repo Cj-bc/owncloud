@@ -1,11 +1,43 @@
+You can execute those methods from curl.
+usage for curl:
+    $curl -X <webdav_method/method> -u 'user:password' "https://yourwebsite.com/drive(or somewhere owncloud is in)<URI>"  --header "options(Destination only)"
 
-  Method          | webdav method | URI                                 | options
-------------------|---------------|-------------------------------------|----------------------------------------------
-Get File list     | PROFIND       | /remote.php/webdav/<directory_name> |
-Get File          | GET           | /remote.php/webdav/<file_path>      |
-Send File         | PUT           | /remote.php/webdav/<file_path>      |
-Rename/move file  | MOVE          | /remote.php/webdav/<file_path>      | Destination:/remote.php/webdav/<file_path>
-Copy the file     | COPY          | /remote.php/webdav/<file_path>      | Destination:/remote.php/webdav/<file_path>
-Change attribute  | PROPPATCH     | /remote.php/webdav/<file_path>      |
-Make directory    | MKCOL         | /remote.php/webdav/<directory_name> |
-Delete directory  | DELETE        | /remote.php/webdav/<directory_name> |
+
+
+  Attribute                 | webdav method | URI                                 | options
+----------------------------|---------------|-------------------------------------|----------------------------------------------
+Get File list               | PROFIND       | /remote.php/webdav/<directory_name> |
+Get File                    | GET           | /remote.php/webdav/<file_path>      |
+Send File                   | PUT           | /remote.php/webdav/<file_path>      |
+Rename/move file            | MOVE          | /remote.php/webdav/<file_path>      | Destination:/remote.php/webdav/<file_path>
+Copy the file               | COPY          | /remote.php/webdav/<file_path>      | Destination:/remote.php/webdav/<file_path>
+Change attribute            | PROPPATCH     | /remote.php/webdav/<file_path>      |
+Make directory              | MKCOL         | /remote.php/webdav/<directory_name> |
+Delete directory            | DELETE        | /remote.php/webdav/<directory_name> |
+
+ Attribute                  | Method        | URI                                 | options
+----------------------------|---------------|-------------------------------------|---------------------------------------------
+Get Shared File             | GET           | /shares                             |
+Get specific Shared folder  | GET           | /shares/<file_path>                 |
+Get Share infomation        | GET           | /shares/<share_id>                  |
+Share a file                | POST          | /shares/                            | path=<shared_dir_path>
+                            |               |                                     | shareType=<share_type>
+                            |               |                                     |   '0'=user
+                            |               |                                     |   '1'=group
+                            |               |                                     |   '3'=Link share
+                            |               |                                     |   '6'=federated cloud share
+                            |               |                                     | shareWith=<user_id/group_id>
+                            |               |                                     | publicUpload=<true/false>
+                            |               |                                     | password=<password_to_see_the_file>
+                            |               |                                     | permission=<shared_premission>
+                            |               |                                     |   '1' = read(default for URL sharing)
+                            |               |                                     |   '2' = update 
+                            |               |                                     |   '4' = create
+                            |               |                                     |   '8' = delete
+                            |               |                                     |   '16'= share
+                            |               |                                     |   '31'= all(default)
+                            |               |                                     | * essentials: path,shareType,shareWith
+Delete a share              | DELETE        | /shares/<share_id>                  | 
+Update share                | PUT           | /shares/<share_id>                  | permission=<shared_permission> (as Sharing)
+                            |               |                                     | password=<password_to_see_the_file>
+                            |               |                                     | publicUpload=<true/false>

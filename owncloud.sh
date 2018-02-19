@@ -13,7 +13,13 @@ OWNCLOUD_PATH="${brew --prefix}/Cellar/owncloud/${version}/"
 
 source ${OWNCLOUD_PATH}/config
 
+# set attribute. if no arg, show help
+[ $# -ne 0 ] && attrib=$1 || attrib="help"
+[ "$attrib" -ne "help" ] && shift # if first arg was option, shift.
 
-attrib=$1
-
-
+case "$attrib" in
+  "get" | "post" | "ls" | "mv" | "cp" | "mkdir" | "rm" | "help" )
+    $attrib $@;;
+  * )
+    usage
+esac

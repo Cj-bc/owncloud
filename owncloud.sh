@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# owncloud  -- a simplest owncloud client for CLI
+# owncloud  -- a simplest owncloud tool for CLI
 #
 # copyright (c) 2018 Cj-bc
 #
@@ -12,3 +12,8 @@ version=0.0.1
 OWNCLOUD_PATH="${brew --prefix}/Cellar/owncloud/${version}/"
 
 source ${OWNCLOUD_PATH}/config
+
+
+attrib=$1
+
+

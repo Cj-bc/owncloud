@@ -9,7 +9,11 @@
 
 version=0.0.1
 
-OWNCLOUD_PATH="`brew --prefix`/Cellar/owncloud/${version}"
+if [ -e `brew --prefix`/Cellar/owncloud/${version} ]
+then
+  OWNCLOUD_PATH="`brew --prefix`/Cellar/owncloud/${version}"
+else
+  OWNCLOUD_PATH="."
 
 source ${OWNCLOUD_PATH}/.sourcefiles
 

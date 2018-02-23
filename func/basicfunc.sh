@@ -45,7 +45,10 @@ function ownpost {
 
 function ownmkdir {
 
-  response=`curl -X $API_MKDIR[0] -u $USER:$PASSWD "$API_MKDIR[1]/$1"
+  response=`curl -X $API_MKDIR[0] -u $USER:$PASSWD "$API_MKDIR[1]/$1"`
 
   [ "$response" != "" ] && echo "ERROR: FAILED TO MKDIR $1" || echo "Make specified directory correctory." # if error has occured, output it.if not, output succeed
 }
+
+
+

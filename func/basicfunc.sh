@@ -23,7 +23,7 @@ function ownget {
   then
     response=`curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$API_GETFILELIST[1]" -s`
   else
-    response=`curl -X $API_GETFILE[0] -u $USER:$PASSWD "$API_GETFILE[1]/$1" -s` 
+    response=`curl -X $API_GETFILE[0] -u $USER:$PASSWD "$API_GETFILE[1]/$1" -s > ${1##*/} `
   fi
 
   outData $response

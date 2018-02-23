@@ -51,4 +51,10 @@ function ownmkdir {
 }
 
 
+function ownrm {
 
+  response=`curl -X $API_RMFILE[0] -u $USER:$PASSWD "$API_RMFILE[1]/$1"
+
+
+  [ "$response" != "" ] && echo "ERROR: FAILED TO remove $1" || echo "Remove specified directory correctory." # if error has occured, output it.if not, output succeed
+}

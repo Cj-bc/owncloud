@@ -29,4 +29,13 @@ function ownget {
   outData $response
 }
 
-function own
+
+# this function needs 2 argunments
+#   -- upload path
+#   -- file itself
+function ownpost {
+
+  response=curl -X $API_POSTFILE[0] -u $USER:$PASSWD "$API_POSTFILE[1]/$1" --data-binary @$2
+
+  [ $response != "" ] && outData "ERROR: POSTING WAS FAILED" || outData "File is posted correctory." # if error has occured, output it.if not, output succeed
+}

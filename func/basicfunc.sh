@@ -21,9 +21,12 @@ function ownget {
   
   if [ $# -eq 0 ]
   then
-    curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$API_GETFILELIST[1]" -s
+    response=`curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$API_GETFILELIST[1]" -s`
   else
-    curl -X $API_GETFILE[0] -u $USER:$PASSWD --header "Destination:$WebdavURL/$1""$API_GETFILE[1]" -s
+    response=`curl -X $API_GETFILE[0] -u $USER:$PASSWD "$API_GETFILE[1]/$1" -s` 
   fi
 
+  outData $response
 }
+
+function own

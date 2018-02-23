@@ -1,7 +1,7 @@
 #! /bin/bash
 #
 # basicfunc.sh    -- library for owncloud.sh
-#                    Related with share attribute
+#                    Related with basic attribute
 #
 # copyright (c) 2018 Cj-bc
 #

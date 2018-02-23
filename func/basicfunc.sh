@@ -17,15 +17,17 @@ function usage {
   return $NumUSAGE
 }
 
+# get specified file
 function ownget {
   
-  if [ $# -eq 0 ]
-  then
-    response=`curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$API_GETFILELIST[1]" -s`
-  else
-    response=`curl -X $API_GETFILE[0] -u $USER:$PASSWD "$API_GETFILE[1]/$1" -s > ${1##*/} `
-  fi
+  response=`curl -X $API_GETFILE[0] -u $USER:$PASSWD "$API_GETFILE[1]/$1" -s > ${1##*/}`
+  outData $response
+}
 
+# ls specified directory
+function ownls {
+
+  response=`curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$API_GETFILELIST[1]/$1" -s`
   outData $response
 }
 

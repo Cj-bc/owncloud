@@ -21,14 +21,14 @@ function usage {
 function ownget {
   
   response=`curl -X $API_GETFILE[0] -u $USER:$PASSWD "$API_GETFILE[1]/$1" -s > ${1##*/}`
-  outData $response
+  echo $response
 }
 
 # ls specified directory
 function ownls {
 
   response=`curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$API_GETFILELIST[1]/$1" -s`
-  outData $response
+  echo $response
 }
 
 
@@ -39,5 +39,5 @@ function ownpost {
 
   response=curl -X $API_POSTFILE[0] -u $USER:$PASSWD "$API_POSTFILE[1]/$1" --data-binary @$2
 
-  [ $response != "" ] && outData "ERROR: POSTING WAS FAILED" || outData "File is posted correctory." # if error has occured, output it.if not, output succeed
+  [ $response != "" ] && echo "ERROR: POSTING WAS FAILED" || echo "File is posted correctory." # if error has occured, output it.if not, output succeed
 }

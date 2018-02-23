@@ -39,5 +39,5 @@ function ownpost {
 
   response=`curl -X $API_POSTFILE[0] -u $USER:$PASSWD "$API_POSTFILE[1]/$1" --data-binary @$2`
 
-  [ $response != "" ] && echo "ERROR: POSTING WAS FAILED" || echo "File is posted correctory." # if error has occured, output it.if not, output succeed
+  [ "$response" != "" ] && echo "ERROR: POSTING WAS FAILED" || echo "File is posted correctory." # if error has occured, output it.if not, output succeed
 }

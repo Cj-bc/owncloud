@@ -15,7 +15,7 @@ source ${OWNCLOUD_PATH}/.sourcefiles
 
 # ----- set attribute. if no arg, show help
 [ $# -ne 0 ] && attrib="own"$1 || attrib="help"
-[ "$attrib" -ne "help" ] && shift # ---- if first arg was option, shift.
+[ "$attrib" != "help" ] && shift # ---- if first arg was option, shift.
 
 [ -p /dev/stdin ] && pipIn=`/dev/stdin` && attrib=ownpost # ---- if there's pip,read data from it, set to post it
 

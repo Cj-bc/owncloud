@@ -14,6 +14,8 @@ then
   OWNCLOUD_PATH="`brew --prefix`/Cellar/owncloud/${version}"
 else
   OWNCLOUD_PATH="."
+fi
+
 
 source ${OWNCLOUD_PATH}/.sourcefiles
 

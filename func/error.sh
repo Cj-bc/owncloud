@@ -12,10 +12,13 @@
 # input: <error_message> <error_code>
 # aim: output error to console
 
-errorcode=$1;errorMessage=$2;
+function error {
 
-cat <<EOT
-  error has occured.
-  Error code: $errorcode
-  Message: $errorMessage
-EOT
+  errorcode=$1;errorMessage=$2;
+
+  cat <<EOT
+    error has occured.
+    Error code: $errorcode
+    Message: $errorMessage
+  EOT
+}

@@ -1,5 +1,5 @@
-WebdavURL="/remote.php/webdav"
-ShareURL="/shares"
+WebdavURL="${OWNCLOUDURL}/remote.php/webdav"
+ShareURL="${OWNCLOUDURL}/shares"
 
 API_GETFILELIST=("PROFIND" $WebdavURL)
 API_GETFILE=("GET" $WebdavURL)

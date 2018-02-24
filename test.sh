@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cache=0
 [ $# -ne 0 ] && [ $1 == '--cache' ] && cache=1
 
 echo "this is test file!!!! hello world" > test.txt && echo "test: test.txt generated"

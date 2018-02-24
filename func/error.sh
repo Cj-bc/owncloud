@@ -20,5 +20,5 @@ function error {
     error has occured.
     Error code: $errorcode
     Message: $errorMessage
-  EOT
+EOT
 }

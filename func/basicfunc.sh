@@ -24,7 +24,8 @@ function ownget {
 function ownls {
 
   response=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX")
-  curl -X ${API_GETFILELIST[0]} -u "$USER:$PASSWD" -s "${API_GETFILELIST[1]}/$1" -o "$response"
+  [ $# -eq 0 ] && local path="" || local path=$1
+  curl -X ${API_GETFILELIST[0]} -u "$USER:$PASSWD" -s "${API_GETFILELIST[1]}/$path" -o "$response"
 
   ex -s "$response" <<-EOT
     %s/</\r</g

@@ -2,5 +2,3 @@
 OWNCLOUDURL=""
 USER=""
 PASSWD="" # If it's empty, ask for it each time
-
-APIS="" # this should be path

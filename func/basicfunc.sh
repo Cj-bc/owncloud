@@ -38,6 +38,8 @@ function ownls {
     w!
 EOT
   cat "$response"
+
+  rm "$response"
 }
 
 

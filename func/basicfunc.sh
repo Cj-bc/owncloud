@@ -12,10 +12,6 @@
 # Input: <attribute> <option1> <option2> <option3> ...
 # Aim: execute API
 
-function usage {
-  echo $USAGE
-  return $NumUSAGE
-}
 
 # get specified file
 function ownget {
@@ -27,8 +23,20 @@ function ownget {
 # ls specified directory
 function ownls {
 
-  response=`curl -X ${API_GETFILELIST[0]} -u "$USER:$PASSWD" -s "${API_GETFILELIST[1]}/$1" `
-  echo $response
+  response=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX")
+  curl -X ${API_GETFILELIST[0]} -u "$USER:$PASSWD" -s "${API_GETFILELIST[1]}/$1" -o "$response"
+
+  ex -s "$response" <<-EOT
+    %s/</\r</g
+    g/>$/d
+    g/^<d:[^h]/d
+    1d
+    %s/<d:href>.*\///g
+    %s/<[^>]*>//g
+    g/^$/d
+    w!
+EOT
+  cat "$response"
 }
 
 

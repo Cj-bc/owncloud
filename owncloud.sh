@@ -31,6 +31,7 @@ source ${OWNCLOUD_PATH}/.sourcefiles
 case "$attrib" in
   "ownshare" | "ownget" | "ownpost" | "ownls" | "ownmv" | "owncp" | "ownmkdir" | "ownrm" | "ownhelp" )
     $attrib $@ $pipIn;; # pass pipIn(pipIn shuld be the data)
+  "own-v" | "ownversion" ) echo "owncloud ver:"$version;;
   * )
     cat text/usage.txt
     echo test;;

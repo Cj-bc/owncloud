@@ -4,4 +4,5 @@ usage:  owncloud [post|cp|mv] <file/path> <dist>
         owncloud share [get|info] <path>
         owncloud share share <file> <shareType> <name_share_with>
         owncloud help
+        owncloud [-v|version]
 man --- someday

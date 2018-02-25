@@ -32,5 +32,6 @@ case "$attrib" in
   "ownshare" | "ownget" | "ownpost" | "ownls" | "ownmv" | "owncp" | "ownmkdir" | "ownrm" | "ownhelp" )
     $attrib $@ $pipIn;; # pass pipIn(pipIn shuld be the data)
   * )
-    usage;;
+    cat text/usage.txt
+    echo test;;
 esac

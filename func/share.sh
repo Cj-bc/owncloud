@@ -16,24 +16,24 @@ function shareget {
 
   if [ $1 != "" ]
   then
-    curl -X $API_GETFILE[0] -u $USER:$PASSWD "$OWNCLOUDURL/$API_GETFILE[1]/$1" -s
+    curl -X $API_GETFILE[0] -u $USER:$PASSWD -s "$OWNCLOUDURL/$API_GETFILE[1]/$1"
   else
-    curl -X $API_GETFILELIST[0] -u $USER:$PASSWD "$OWNCLOUDURL/$API_GETFILELIST[1]" -s
+    curl -X $API_GETFILELIST[0] -u $USER:$PASSWD -s "$OWNCLOUDURL/$API_GETFILELIST[1]"
   fi
 
 }
 
-function shareinfo {
-
-
-
-}
-
-function shareshare {
-
-
-
-}
+# function shareinfo {
+# 
+# 
+# 
+# }
+# 
+# function shareshare {
+# 
+# 
+# 
+# }
 
 
 

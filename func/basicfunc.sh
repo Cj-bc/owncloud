@@ -32,9 +32,12 @@ function ownls {
     g/>$/d
     g/^<d:[^h]/d
     1d
+    %s/\/$/*/g
     %s/<d:href>.*\///g
     %s/<[^>]*>//g
+    %s/*$/\//g
     g/^$/d
+    sort
     w!
 EOT
   cat "$response"
@@ -70,4 +73,13 @@ function ownrm {
 
 
   [ "$response" != "" ] && echo "ERROR: FAILED TO remove $1" || echo "Remove specified directory correctory." # if error has occured, output it.if not, output succeed
+}
+
+
+function ownmv {
+  
+  response=`curl -X ${API_MVFILE[0]} -u "$USER:$PASSWD" -s --header "Destination:/admin/drive/remote.php/webdav/$2" "${API_MVFILE[1]}/$1"`
+   
+  echo $response
+  [ "$response" != "" ] && echo "ERROR: FAILED TO move $1" || echo "Move specified file correctory." # if error has occured, output it.if not, output succeed
 }

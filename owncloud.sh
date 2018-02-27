@@ -9,11 +9,13 @@
 
 version=0.0.1
 
-if [ -e `brew --prefix`/Cellar/owncloud/${version} ]
+if [ "$1" = "--local" ]
+then
+  OWNCLOUD_PATH="."
+  shift
+elif [ -e `brew --prefix`/Cellar/owncloud/${version} ]
 then
   OWNCLOUD_PATH="`brew --prefix`/Cellar/owncloud/${version}"
-else
-  OWNCLOUD_PATH="."
 fi
 
 

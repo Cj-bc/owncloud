@@ -84,3 +84,12 @@ function ownmv {
   echo $response
   [ "$response" != "" ] && echo "ERROR: FAILED TO move $1" || echo "Move \"$1\" correctory." # if error has occured, output it.if not, output succeed
 }
+
+function owncp {
+
+  response=`curl -X ${API_CPFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_CPFILE[1]}/$1"`
+
+  echo $response
+  [ "$response" != "" ] && echo "ERROR: FAILED TO copy $1" || echo "Copy \"$1\" correctory." # if error has occured, output it.if not, output succeed
+
+}

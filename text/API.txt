@@ -1,5 +1,7 @@
-WebdavURL="${OWNCLOUDURL}/remote.php/webdav"
+Webdav="/remote.php/webdav"
+WebdavURL="${OWNCLOUDURL}/${Webdav}"
 ShareURL="${OWNCLOUDURL}/shares"
+DestURL="Destination:$Webdav"
 
 API_GETFILELIST=("PROPFIND" $WebdavURL)
 API_GETFILE=("GET" $WebdavURL)

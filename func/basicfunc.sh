@@ -37,6 +37,7 @@ function ownls {
     %s/<[^>]*>//g
     %s/*$/\//g
     g/^$/d
+    1d
     sort
     w!
 EOT
@@ -78,7 +79,7 @@ function ownrm {
 
 function ownmv {
   
-  response=`curl -X ${API_MVFILE[0]} -u "$USER:$PASSWD" -s --header "Destination:/admin/drive/remote.php/webdav/$2" "${API_MVFILE[1]}/$1"`
+  response=`curl -X ${API_MVFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_MVFILE[1]}/$1"`
    
   echo $response
   [ "$response" != "" ] && echo "ERROR: FAILED TO move $1" || echo "Move specified file correctory." # if error has occured, output it.if not, output succeed

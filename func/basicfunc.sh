@@ -54,8 +54,8 @@ function ownpost {
 
   response=`curl -X ${API_POSTFILE[0]} -u "$USER:$PASSWD" -s "${API_POSTFILE[1]}/$1" --data-binary @$2`
 
-  [ $? -ne 0 ] && echo "ERROR: POSTING WAS FAILED" || echo "File is posted correctory." # if error has occured, output it.if not, output succeed
-  [ "$response" != "" ] && echo "ERROR: POSTING WAS FAILED" || echo "File is posted correctory." # if error has occured, output it.if not, output succeed
+  [ $? -ne 0 ] && echo "ERROR: POSTING WAS FAILED" # if error has occured, output it.if not, output succeed
+  [ "$response" != "" ] && echo "ERROR: POSTING WAS FAILED" || echo "\"$1\" is posted correctory." # if error has occured, output it.if not, output succeed
 }
 
 
@@ -63,8 +63,8 @@ function ownmkdir {
 
   response=`curl -X ${API_MKDIR[0]} -u "$USER:$PASSWD" -s "${API_MKDIR[1]}/$1"`
 
-  [ $? -ne 0 ] && echo "ERROR: FAILED TO MKDIR $1" || echo "Make specified directory correctory." # if error has occured, output it.if not, output succeed
-  [ "$response" != "" ] && echo "ERROR: FAILED TO MKDIR $1" || echo "Make specified directory correctory." # if error has occured, output it.if not, output succeed
+  [ $? -ne 0 ] && echo "ERROR: FAILED TO MKDIR $1" # if error has occured, output it.if not, output succeed
+  [ "$response" != "" ] && echo -e "ERROR: FAILED TO MKDIR $1.Response is below:\n\n${response}" || echo "Make \"$1\" correctory." # if error has occured, output it.if not, output succeed
 }
 
 
@@ -73,7 +73,7 @@ function ownrm {
   response=`curl -X ${API_RMFILE[0]} -u "$USER:$PASSWD" -s "${API_RMFILE[1]}/$1"`
 
 
-  [ "$response" != "" ] && echo "ERROR: FAILED TO remove $1" || echo "Remove specified directory correctory." # if error has occured, output it.if not, output succeed
+  [ "$response" != "" ] && echo "ERROR: FAILED TO remove $1" || echo "Remove \"$1\" correctory." # if error has occured, output it.if not, output succeed
 }
 
 
@@ -82,5 +82,5 @@ function ownmv {
   response=`curl -X ${API_MVFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_MVFILE[1]}/$1"`
    
   echo $response
-  [ "$response" != "" ] && echo "ERROR: FAILED TO move $1" || echo "Move specified file correctory." # if error has occured, output it.if not, output succeed
+  [ "$response" != "" ] && echo "ERROR: FAILED TO move $1" || echo "Move \"$1\" correctory." # if error has occured, output it.if not, output succeed
 }

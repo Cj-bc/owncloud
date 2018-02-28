@@ -1,8 +1,8 @@
-WebdavURL="${OWNCLOUDURL}/remote.php/dav"
+WebdavURL="${OWNCLOUDURL}/remote.php/dav/files/${USER}"
 ShareURL="${OWNCLOUDURL}/shares"
 DestURL="Destination:$WebdavURL"
 
-API_GETFILELIST=("PROPFIND" $WebdavURL/files/${USER})
+API_GETFILELIST=("PROPFIND" $WebdavURL)
 API_GETFILE=("GET" $WebdavURL)
 API_POSTFILE=("PUT" $WebdavURL)
 API_MVFILE=("MOVE" $WebdavURL)

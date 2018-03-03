@@ -76,7 +76,7 @@ function ownpost {
 
   response=`curl -X ${API_POSTFILE[0]} -u "$USER:$PASSWD" -s "${API_POSTFILE[1]}/$2" --data-binary @$1`
 
-  [ $? -ne 0 ] && echo "ERROR: something wrong with CURL.\nusage: post <file> <dest>" # if error has occured, output it.if not, output succeed
+  [ $? -ne 0 ] && echo -e "error: something wrong with CURL.\nusage: post <file> <dest>" # if error has occured, output it.if not, output succeed
   [ "$response" != "" ] && echo "ERROR: POSTING WAS FAILED" || echo "\"$1\" is posted correctory." # if error has occured, output it.if not, output succeed
 }
 
@@ -85,7 +85,7 @@ function ownmkdir {
 
   response=`curl -X ${API_MKDIR[0]} -u "$USER:$PASSWD" -s "${API_MKDIR[1]}/$1"`
 
-  [ $? -ne 0 ] && echo "ERROR: FAILED TO MKDIR $1" # if error has occured, output it.if not, output succeed
+  [ $? -ne 0 ] && echo -e "error: something wrong with CURL.\nusage: mkdir <dir>" # if error has occured, output it.if not, output succeed
   [ "$response" != "" ] && echo -e "ERROR: FAILED TO MKDIR $1.Response is below:\n\n${response}" || echo "Make \"$1\" correctory." # if error has occured, output it.if not, output succeed
 }
 

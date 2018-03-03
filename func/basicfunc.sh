@@ -18,7 +18,7 @@ function ownconfig {
   case "$1" in
     "edit" | "e") 
       [ $OWNCLOUD_PATH != "." ] && \
-      ${EDITOR:-vi} $OWNCLOUD_PATH/../config ||\
+      ${EDITOR:-vi} `brew --prefix`/Cellar/owncloud/config ||\
       ${EDITOR:-vi} config;; # if you want use other editor,set $EDITOR
     "init") 
       config="`brew --prefix`/Cellar/owncloud/config"

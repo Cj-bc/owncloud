@@ -12,6 +12,27 @@
 # Input: <attribute> <option1> <option2> <option3> ...
 # Aim: execute API
 
+# setting
+function ownconfig {
+
+  case "$1" in
+    "edit" | "e") 
+      [ $OWNCLOUD_PATH != "." ] && \
+      ${EDITOR:-vi} $OWNCLOUD_PATH/../config ||\
+      ${EDITOR:-vi} config;; # if you want use other editor,set $EDITOR
+    "init") 
+      echo -n "Welcome to my setting section!\nwhat's the URL for your own/nextcloud?\nURL> "
+      read stack;echo "OWNCLOUDURL=\"${stack}\""
+      echo -n "Your name?\nusername> "
+      read stack;echo "USER=\"${stack}\""
+      echo -n "Password? passwd> "
+      read -s stack;echo "PASSWD=\"${stack}\"\n"
+      echo -n "API? (`ls ${OWNCLOUD_PATH}/text/ | grep API`)"
+      read stack;echo "APIS=\"text/${stack}\""
+      ;;
+  esac
+}
+
 
 # get specified file
 function ownget {

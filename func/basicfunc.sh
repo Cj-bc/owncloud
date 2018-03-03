@@ -21,13 +21,13 @@ function ownconfig {
       ${EDITOR:-vi} $OWNCLOUD_PATH/../config ||\
       ${EDITOR:-vi} config;; # if you want use other editor,set $EDITOR
     "init") 
-      echo -n "Welcome to my setting section!\nwhat's the URL for your own/nextcloud?\nURL> "
+      echo -en "Welcome to my setting section!\nwhat's the URL for your own/nextcloud?\nURL> "
       read stack;echo "OWNCLOUDURL=\"${stack}\""
-      echo -n "Your name?\nusername> "
+      echo -en "Your name?\nusername> "
       read stack;echo "USER=\"${stack}\""
-      echo -n "Password? passwd> "
+      echo -en "Password? passwd> "
       read -s stack;echo "PASSWD=\"${stack}\"\n"
-      echo -n "API? (`ls ${OWNCLOUD_PATH}/text/ | grep API`)"
+      echo -en "API? (`ls ${OWNCLOUD_PATH}/text/ | grep API`)"
       read stack;echo "APIS=\"text/${stack}\""
       ;;
   esac

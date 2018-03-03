@@ -34,7 +34,7 @@ fi
 
 case "$attrib" in
   "ownshare" | "ownget" | "ownpost" | "ownls" | "ownmv" | "owncp" | "ownmkdir" | "ownrm" | "ownhelp" | "ownconfig")
-    $attrib $@ $pipIn;; # pass pipIn(pipIn shuld be the data)
+    $attrib $pipIn $@ ;; # pass pipIn(pipIn shuld be the data)
   "own-v" | "ownversion" ) echo "owncloud ver:"$version;;
   * )
     cat text/usage.txt

@@ -3,8 +3,8 @@
 if [ -e `brew --prefix`/Cellar/owncloud/config ]
 then
   [ "$OWNCLOUD_PATH" = "." ] && source ./config || source `brew --prefix`/Cellar/owncloud/config
+  source ${OWNCLOUD_PATH}/${APIS}
 fi
-source ${OWNCLOUD_PATH}/${APIS}
 source ${OWNCLOUD_PATH}/text/errors.txt
 source ${OWNCLOUD_PATH}/func/error.sh
 source ${OWNCLOUD_PATH}/func/share.sh

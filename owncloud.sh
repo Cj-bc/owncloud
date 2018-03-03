@@ -13,14 +13,15 @@ if [ "$1" = "--local" ]
 then
   OWNCLOUD_PATH="."
   shift
+  source ${OWNCLOUD_PATH}/.sourcefiles
 elif [ -e `brew --prefix`/Cellar/owncloud/${version} ]
 then
   OWNCLOUD_PATH="`brew --prefix`/Cellar/owncloud/${version}"
+  source ${OWNCLOUD_PATH}/.sourcefiles
   [ -e "${OWNCLOUD_PATH}/../config" ] || ownconfig init
 fi
 
 
-source ${OWNCLOUD_PATH}/.sourcefiles
 
 # ----- set attribute. if no arg, show help
 [ $# -ne 0 ] && attrib="own"$1 || attrib="help"

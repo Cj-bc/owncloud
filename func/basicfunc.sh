@@ -21,14 +21,15 @@ function ownconfig {
       ${EDITOR:-vi} $OWNCLOUD_PATH/../config ||\
       ${EDITOR:-vi} config;; # if you want use other editor,set $EDITOR
     "init") 
+      config="`brew --prefix`/Cellar/owncloud/config"
       echo -en "Welcome to my setting section!\nwhat's the URL for your own/nextcloud?\nURL> "
-      read stack;echo "OWNCLOUDURL=\"${stack}\""
+      read stack;echo "OWNCLOUDURL=\"${stack}\"" > $config
       echo -en "Your name?\nusername> "
-      read stack;echo "USER=\"${stack}\""
+      read stack;echo "USER=\"${stack}\"" >> $config
       echo -en "Password? passwd> "
-      read -s stack;echo "PASSWD=\"${stack}\"\n"
       echo -en "API? (`ls ${OWNCLOUD_PATH}/text/ | grep API`)"
-      read stack;echo "APIS=\"text/${stack}\""
+      read -s stack;echo "PASSWD=\"${stack}\"\n" >> $config
+      read stack;echo "APIS=\"text/${stack}\"" >> $config
       ;;
   esac
 }

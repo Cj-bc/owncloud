@@ -18,7 +18,7 @@ elif [ -e `brew --prefix`/Cellar/owncloud/${version} ]
 then
   OWNCLOUD_PATH="`brew --prefix`/Cellar/owncloud/${version}"
   source ${OWNCLOUD_PATH}/.sourcefiles
-  [ -e "${OWNCLOUD_PATH}/../config" ] || ownconfig init
+  [ -e "`brew --prefix`/Cellar/owncloud/config" ] || ownconfig init
 fi
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ "$OWNCLOUD_PATH" = "." ] && source ./config || source ${OWNCLOUD_PATH}/../config
+[ "$OWNCLOUD_PATH" = "." ] && source ./config || source `brew --prefix`/Cellar/owncloud/config
 source ${OWNCLOUD_PATH}/${APIS}
 source ${OWNCLOUD_PATH}/text/errors.txt
 source ${OWNCLOUD_PATH}/func/error.sh

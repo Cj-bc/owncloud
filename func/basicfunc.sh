@@ -27,7 +27,7 @@ function ownconfig {
       echo -en "Your name?\nusername> "
       read stack;echo "USER=\"${stack}\"" >> $config
       echo -en "Password? passwd> "
-      read -s stack;echo "PASSWD=\"${stack}\"\n" >> $config
+      read -s stack;echo -e "PASSWD=\"${stack}\"" >> $config
       echo -en "API? (`ls -m ${OWNCLOUD_PATH}/text/ | grep API`)\nAPI> " #ls -m outputs <file>, <file>
       read stack;echo "APIS=\"text/${stack}\"" >> $config
       ;;

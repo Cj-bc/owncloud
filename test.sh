@@ -5,7 +5,7 @@ cache=0
 
 echo "this is test file!!!! hello world" > test.txt && echo "test: test.txt generated"
 echo "test start: mkdir";./owncloud.sh --local mkdir testdir
-echo "test start: post";./owncloud.sh --local post testdir/test.txt test.txt
+echo "test start: post";./owncloud.sh --local post test.txt testdir/test.txt
 echo "test start: ls";./owncloud.sh --local ls testdir
 echo "test start: mv";./owncloud.sh --local mv testdir/test.txt test.txt
 echo "test start: get";./owncloud.sh --local get test.txt

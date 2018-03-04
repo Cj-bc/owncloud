@@ -1,0 +1,8 @@
+usage:  owncloud [post|cp|mv] <file/path> <dist>
+        owncloud get <path>
+        owncloud [ls|mkdir|rm] <path>
+        owncloud config e[dit]
+
+        owncloud help
+        owncloud [-v|version]
+man --- someday

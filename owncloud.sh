@@ -38,6 +38,5 @@ case "$attrib" in
   "own-v" | "ownversion" ) echo "owncloud ver:"$version;;
   * )
     echo "owncloud version: ${version}"
-    cat text/usage.txt
-    echo test;;
+    cat text/API/${API}/usage.txt;;
 esac

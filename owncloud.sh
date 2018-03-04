@@ -37,6 +37,7 @@ case "$attrib" in
     $attrib $pipIn $@ ;; # pass pipIn(pipIn shuld be the data)
   "own-v" | "ownversion" ) echo "owncloud ver:"$version;;
   * )
+    echo "owncloud version: ${version}"
     cat text/usage.txt
     echo test;;
 esac

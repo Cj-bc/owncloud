@@ -1,4 +1,7 @@
+SUCCESS=0
+
 ERROR_NOATTRIBUTE="this attribute doesn't exist."
 
 
 NumERROR_NOATTRIBUTE=1
+NumERROR_APIRETURNERROR=2

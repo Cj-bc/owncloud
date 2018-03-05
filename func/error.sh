@@ -22,3 +22,23 @@ function error {
     Message: $errorMessage
 EOT
 }
+
+
+function error_API {
+
+  [ `cat $1 | grep "<d:error>"` ] || return $SUCCESS # no error, return SUCCESS code
+  
+  # got error message from XML
+  tmp=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX")
+  ex -s "$tmp" <<-EOT
+    %s/<[^>]*>//g
+    g/^$/d
+    wq
+EOT
+
+  #return error code to stderror
+  cat "$tmp"
+  rm "$tmp"
+
+  return $NumERROR_APIRETURNERROR
+}

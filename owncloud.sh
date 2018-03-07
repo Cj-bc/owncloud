@@ -7,7 +7,7 @@
 # This software is relesed under MIT Lisence.
 # http://opensource.org/license/mit-license.php
 
-version=0.1.5
+version=0.1.6
 
 if [ "$1" = "--local" ]
 then

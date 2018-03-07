@@ -26,10 +26,16 @@ EOT
 
 function error_API {
 
-  [ `cat $1 | grep "<d:error>"` ] || return $SUCCESS # no error, return SUCCESS code
-  
+  if [ -e "$1" ] # if given str is file name
+  then
+    tmp=$1
+  else
+    tmp=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX") # make tmp file to edit request
+    echo $1 > "$tmp"
+  fi
+    [ `cat $tmp | grep "<d:error" >/dev/null;echo $?` -eq 1 ] && return $SUCCESS # no error, return SUCCESS code
+
   # got error message from XML
-  tmp=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX")
   ex -s "$tmp" <<-EOT
     %s/<[^>]*>//g
     g/^$/d
@@ -37,7 +43,7 @@ function error_API {
 EOT
 
   #return error code to stderror
-  cat "$tmp"
+  cat "$tmp" 1>&2
   rm "$tmp"
 
   return $NumERROR_APIRETURNERROR

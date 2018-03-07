@@ -1,6 +1,7 @@
 SUCCESS=0
 
 ERROR_NOATTRIBUTE="this attribute doesn't exist."
+ERROR_APIRETURNERROR="API error has been occured"
 
 
 NumERROR_NOATTRIBUTE=1

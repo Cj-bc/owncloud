@@ -5,3 +5,5 @@ This is a kind of todo list
   * outputs each error message
   * cope with Fav method(nextcloud)
   * cope with WebDav search(nextcloud?)
+  * make example data to test script offline
+  * decode URL encode(e.g. Japanese letter)

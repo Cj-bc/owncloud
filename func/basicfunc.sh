@@ -80,6 +80,7 @@ function ownpost {
 
   response=`curl -X ${API_POSTFILE[0]} -u "$USER:$PASSWD" -s "${API_POSTFILE[1]}/$2" --data-binary @$1`
 
+  [ $? -ne 0 ] && echo -e "${ERROR_CURL} post <file> <dest>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
   [ $? -ne 0 ] && echo -e "error: something wrong with CURL.\nusage: post <file> <dest>" # if error has occured, output it.if not, output succeed
   [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
 
@@ -93,7 +94,7 @@ function ownmkdir {
 
   response=`curl -X ${API_MKDIR[0]} -u "$USER:$PASSWD" -s "${API_MKDIR[1]}/$1"`
 
-  [ $? -ne 0 ] && echo -e "error: something wrong with CURL.\nusage: mkdir <dir>" # if error has occured, output it.if not, output succeed
+  [ $? -ne 0 ] && echo -e "${ERROR_CURL} mkdir <dir>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
   [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
  echo "Make \"$1\" correctory." # if error has occured, output it.if not, output succeed
  return $SUCCESS
@@ -105,6 +106,7 @@ function ownrm {
   response=`curl -X ${API_RMFILE[0]} -u "$USER:$PASSWD" -s "${API_RMFILE[1]}/$1"`
 
 
+  [ $? -ne 0 ] && echo -e "${ERROR_CURL} rm <dir>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
   [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
   echo "Remove \"$1\" correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS
@@ -115,6 +117,7 @@ function ownmv {
   
   response=`curl -X ${API_MVFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_MVFILE[1]}/$1"`
    
+  [ $? -ne 0 ] && echo -e "${ERROR_CURL} mv <dir> <dest>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
   [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
   echo "Move \"$1\" correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS
@@ -124,6 +127,7 @@ function owncp {
 
   response=`curl -X ${API_CPFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_CPFILE[1]}/$1"`
 
+  [ $? -ne 0 ] && echo -e "${ERROR_CURL} cp <file> <dest>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
   [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
   echo "Copy \"$1\" correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS

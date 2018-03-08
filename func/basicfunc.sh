@@ -53,7 +53,7 @@ function ownls {
 
   [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
 
-  ex -s "$response" <<-EOT
+  vim -e -s "$response" <<-EOT
     %s/</\r</g
     g/>$/d
     g/^<d:[^h]/d

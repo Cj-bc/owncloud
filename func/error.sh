@@ -36,7 +36,7 @@ function error_API {
     [ `cat $tmp | grep "<d:error" >/dev/null;echo $?` -eq 1 ] && return $SUCCESS # no error, return SUCCESS code
 
   # got error message from XML
-  ex -s "$tmp" <<-EOT
+  vim -e -s "$tmp" <<-EOT
     %s/<[^>]*>//g
     g/^$/d
     wq

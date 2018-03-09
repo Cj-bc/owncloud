@@ -40,7 +40,7 @@ function ownget {
   
   response=`curl -X ${API_GETFILE[0]} -u "$USER:$PASSWD" -s "${API_GETFILE[1]}/$1"`
   [ "`error_API "$response";echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
-  echo $response > ${1##*/}
+  echo $response > "${1##*/}"
   return $SUCCESS
 }
 

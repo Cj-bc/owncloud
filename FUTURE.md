@@ -7,3 +7,5 @@ This is a kind of todo list
   * cope with WebDav search(nextcloud?)
   * make example data to test script offline
   * decode URL encode(e.g. Japanese letter)
+  * sppeed UP!!!( this is tooooo slow)
+    -> cache??

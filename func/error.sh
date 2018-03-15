@@ -33,9 +33,13 @@ function error_API {
   if [ -e "$1" ] # if given str is file name
   then
     tmp=$1
-  else
+    [ "`cat $tmp`" = "" ] && error $NumERROR_CURL "$ERROR_CURL"
+  elif [ "$1" != "" ]
+  then
     tmp=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX") # make tmp file to edit request
     echo $1 > "$tmp"
+  else
+    error $NumERROR_CURL "$ERROR_CURL"
   fi
     [ `cat $tmp | grep "<d:error" >/dev/null;echo $?` -eq 1 ] && return $SUCCESS # no error, return SUCCESS code
 

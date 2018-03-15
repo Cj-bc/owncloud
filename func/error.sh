@@ -56,3 +56,9 @@ EOT
 
 }
 
+
+# usage: error_Argument <wanted_number> $#
+function error_Argument {
+  [ $1 -ne $2 ] && error $NumERROR_NotEnoughArgument "${ERROR_NotEnoughArgument} ${1}"
+
+}

@@ -3,8 +3,10 @@ SUCCESS=0
 ERROR_NOATTRIBUTE="this attribute doesn't exist."
 ERROR_APIRETURNERROR="API error has been occured"
 ERROR_CURL="error: something wrong with CURL."
+ERROR_NotEnoughArgument="argument is not set correctly. please give "
 
 
 NumERROR_NOATTRIBUTE=1
 NumERROR_APIRETURNERROR=2
 NumERROR_CURL=3
+NumERROR_NotEnoughArgument=4

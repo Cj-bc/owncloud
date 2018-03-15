@@ -22,6 +22,9 @@ function error {
     Message: 
         $errorMessage
 EOT
+
+  rm /tmp/owncloud.sh.tmp.* # remove all templae file.
+  exit $errorcode
 }
 
 

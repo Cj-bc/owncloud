@@ -46,9 +46,9 @@ function error_API {
     wq
 EOT
 
-  #return error code to stderror
-  cat "$tmp" 1>&2
+  local messaage=`cat "$tmp"`
   rm "$tmp"
+  error $NumERROR_APIRETURNERROR "$message"
 
-  return $NumERROR_APIRETURNERROR
 }
+

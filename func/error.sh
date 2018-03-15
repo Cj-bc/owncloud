@@ -16,10 +16,11 @@ function error {
 
   errorcode=$1;errorMessage=$2;
 
-  cat <<EOT
+  cat <<-EOT 1>&2
     error has occured.
     Error code: $errorcode
-    Message: $errorMessage
+    Message: 
+        $errorMessage
 EOT
 }
 

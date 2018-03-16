@@ -38,8 +38,9 @@ function ownconfig {
 # get specified file
 function ownget {
   
-  [ "`error_API "$response";echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_Argument 1 $#
   response="`curl -X ${API_GETFILE[0]} -u "$USER:$PASSWD" -s "${API_GETFILE[1]}/$1"`"
+  error_API "$response" # if error was found, the program will eixt with $NumERROR_APIRETURNERROR
   echo $response > "${1##*/}"
   return $SUCCESS
 }
@@ -50,8 +51,7 @@ function ownls {
   response=$(mktemp "/tmp/${0##*/}.tmp.XXXXXX")
   [ $# -eq 0 ] && local path="" || local path=$1
   curl -X ${API_GETFILELIST[0]} -u "$USER:$PASSWD" -s "${API_GETFILELIST[1]}/$path" -o "$response"
-
-  [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_API "$response"
 
   vim -e -s "$response" <<-EOT
     %s/</\r</g
@@ -80,9 +80,7 @@ function ownpost {
 
   response=`curl -X ${API_POSTFILE[0]} -u "$USER:$PASSWD" -s "${API_POSTFILE[1]}/$2" --data-binary @$1`
 
-  [ $? -ne 0 ] && echo -e "${ERROR_CURL} post <file> <dest>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
-  [ $? -ne 0 ] && echo -e "error: something wrong with CURL.\nusage: post <file> <dest>" # if error has occured, output it.if not, output succeed
-  [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_API "$response"
 
   echo "\"$1\" is posted correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS
@@ -92,10 +90,11 @@ function ownpost {
 
 function ownmkdir {
 
+  error_Argument 2 $#
   response=`curl -X ${API_MKDIR[0]} -u "$USER:$PASSWD" -s "${API_MKDIR[1]}/$1"`
 
-  [ $? -ne 0 ] && echo -e "${ERROR_CURL} mkdir <dir>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
-  [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_API "$response"
+
  echo "Make \"$1\" correctory." # if error has occured, output it.if not, output succeed
  return $SUCCESS
 }
@@ -103,11 +102,11 @@ function ownmkdir {
 
 function ownrm {
 
+  error_Argument 2 $#
   response=`curl -X ${API_RMFILE[0]} -u "$USER:$PASSWD" -s "${API_RMFILE[1]}/$1"`
 
 
-  [ $? -ne 0 ] && echo -e "${ERROR_CURL} rm <dir>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
-  [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_API "$response"
   echo "Remove \"$1\" correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS
 }
@@ -115,20 +114,20 @@ function ownrm {
 
 function ownmv {
   
+  error_Argument 2 $#
   response=`curl -X ${API_MVFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_MVFILE[1]}/$1"`
    
-  [ $? -ne 0 ] && echo -e "${ERROR_CURL} mv <dir> <dest>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
-  [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_API "$response"
   echo "Move \"$1\" correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS
 }
 
 function owncp {
 
+  error_Argument 2 $#
   response=`curl -X ${API_CPFILE[0]} -u "$USER:$PASSWD" -s --header "${DestURL}/$2" "${API_CPFILE[1]}/$1"`
 
-  [ $? -ne 0 ] && echo -e "${ERROR_CURL} cp <file> <dest>" && return $NumERROR_CURL # if error has occured, output it.if not, output succeed
-  [ "`error_API $response;echo $?`" != "0" ] && echo $ERROR_APIRETURNERROR && return $NumERROR_APIRETURNERROR
+  error_API "$response"
   echo "Copy \"$1\" correctory." # if error has occured, output it.if not, output succeed
   return $SUCCESS
 }

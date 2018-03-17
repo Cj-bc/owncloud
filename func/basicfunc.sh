@@ -90,7 +90,7 @@ function ownpost {
 
 function ownmkdir {
 
-  error_Argument 2 $#
+  error_Argument 1 $#
   response=`curl -X ${API_MKDIR[0]} -u "$USER:$PASSWD" -s "${API_MKDIR[1]}/$1"`
 
   error_API "$response"

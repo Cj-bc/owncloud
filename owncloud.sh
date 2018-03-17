@@ -28,7 +28,7 @@ fi
 [ "$attrib" != "help" ] && shift # ---- if first arg was option, shift.
 
 [ -p /dev/stdin ] && pipIn=`/dev/stdin` && attrib=ownpost # ---- if there's pip,read data from it, set to post it
-
+[ -p /dev/stdout ] && pipOut=1 || pipOut=0
 
 
 

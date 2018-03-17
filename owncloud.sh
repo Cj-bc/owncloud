@@ -7,7 +7,7 @@
 # This software is relesed under MIT Lisence.
 # http://opensource.org/license/mit-license.php
 
-version=0.1.8
+version=0.2.0
 
 if [ "$1" = "--local" ]
 then
@@ -28,7 +28,7 @@ fi
 [ "$attrib" != "help" ] && shift # ---- if first arg was option, shift.
 
 [ -p /dev/stdin ] && pipIn=`/dev/stdin` && attrib=ownpost # ---- if there's pip,read data from it, set to post it
-
+[ -p /dev/stdout ] && pipOut=1 || pipOut=0
 
 
 

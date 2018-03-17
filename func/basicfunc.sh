@@ -68,7 +68,21 @@ function ownls {
     w!
 EOT
 
-  cat $response
+  echo `cat $response | nkf -w --url-input` > $response
+  if [ "$pipOut" = 0 ]
+  then
+    vim -es "$response" <<-EOT
+    %s/ /  /g
+    w!
+EOT
+    cat $response
+  else
+      vim -e -s "$response" <<-EOT
+      %s/ /\r/g
+      w!
+EOT
+   cat $response
+  fi
   rm "$response"
 }
 

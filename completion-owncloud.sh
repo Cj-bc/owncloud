@@ -8,6 +8,11 @@
 # http://opensource.org/license/mit-license.php
 
 verbs="post cp mv get ls mkdir rm config help -v version"
+flags="--local "
+
+function setVerbAsRep {
+  COMPREPLY=( $(compgen -W "$verbs" -- "$cur") )
+}
 
 function _owncloud-completion {
 
@@ -16,11 +21,12 @@ function _owncloud-completion {
 
   if [ "$cword" -eq 1 ]
   then
-    COMPREPLY=( $(compgen -W "$verbs" -- "$cur") )
-  
+    COMPREPLY=( $(compgen -W "${flags}${verbs}" -- "$cur") )
+
   elif [ "$cword" -eq 2 ]
   then
     case "${prev}" in
+      --local) setVerbAsRep;;
       config) COMPREPLY="edit";;
       post) COMPREPLY=( $(compgen -f -- "$cur"));;
     esac

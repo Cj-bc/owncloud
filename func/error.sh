@@ -47,10 +47,11 @@ function error_API {
   vim -e -s "$tmp" <<-EOT
     %s/<[^>]*>//g
     g/^$/d
+    %s/^ *//g
     wq
 EOT
 
-  local messaage=`cat "$tmp"`
+  message=`cat "$tmp"`
   rm "$tmp"
   error $NumERROR_APIRETURNERROR "$message"
 

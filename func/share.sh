@@ -16,9 +16,9 @@ function shareget {
 
   if [ $1 != "" ]
   then
-    curl -X $API_GETFILE[0] -u $USER:$PASSWD -s "$OWNCLOUDURL/$API_GETFILE[1]/$1"
+    curl -X $API_GETFILE[0] -u $USER:$PASSWD --header "$ShareHeader" -s "$API_GETFILE[1]/$1"
   else
-    curl -X $API_GETFILELIST[0] -u $USER:$PASSWD -s "$OWNCLOUDURL/$API_GETFILELIST[1]"
+    curl -X $API_GETFILELIST[0] -u $USER:$PASSWD --header "$ShareHeader" -s "$API_GETFILELIST[1]"
   fi
 
 }

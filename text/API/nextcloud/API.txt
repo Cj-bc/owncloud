@@ -1,6 +1,7 @@
 WebdavURL="${OWNCLOUDURL}/remote.php/dav/files/${USER}"
-ShareURL="${OWNCLOUDURL}/shares"
+ShareURL="${OWNCLOUDURL}/ocs/v2.php/apps/files_sharing/api/v1"
 DestURL="Destination:$WebdavURL"
+ShareHeader="OCS-APIRequest:true"
 
 API_GETFILELIST=("PROPFIND" $WebdavURL)
 API_GETFILE=("GET" $WebdavURL)

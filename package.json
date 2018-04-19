@@ -3,14 +3,14 @@
   "version": "0.3.2",
   "description": "the simplest owncloud tool for CLI",
   "global": "true",
-  "scripts": "owncloud.sh",
+  "scripts": [ "owncloud.sh" ],
   "bin": {
     "owcloud": "./owcloud.sh"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Cj-bc/owncloud.git"
-  }
+  },
   "author": "Cj-bc",
   "license": "MIT"
 
